@@ -18,6 +18,7 @@
     "validate": "npm run type-check && npm run lint"
   },
   "dependencies": {
+    "@heroicons/react": "^1.0.5",
     "clsx": "^1.1.1",
     "next": "^12.1.0",
     "react": "^17.0.2",

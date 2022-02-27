@@ -9,7 +9,9 @@ module.exports = {
     'plugin:@next/next/recommended',
   ],
   plugins: ['prettier'],
-  rules: {},
+  rules: {
+    'jsx-a11y/anchor-is-valid': 'off',
+  },
   settings: {
     'import/resolver': {
       typescript: {
