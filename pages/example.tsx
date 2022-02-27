@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import { LayoutRoot } from '~/components/layout';
 import { Page, PageContent, PageHeader } from '~/components/ui/page';
 import { UsersList } from '~/modules/example/users-list';
+import { UsersFilterForm } from '~/modules/example/users-filter-form';
 
 const IndexPage: NextPage = () => {
   return (
@@ -13,7 +14,8 @@ const IndexPage: NextPage = () => {
           breadcrumbs={[{ title: 'Example Page', href: '/example', isCurrent: true }]}
         />
         <PageContent>
-          <div className="py-6 mx-auto container">
+          <div className="py-6 mx-auto container space-y-4">
+            <UsersFilterForm />
             <UsersList />
           </div>
         </PageContent>

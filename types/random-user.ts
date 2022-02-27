@@ -29,4 +29,10 @@ export interface RandomUserObject {
 
 export interface RandomUserResponse {
   results: RandomUserObject[];
+  info: {
+    seed: string;
+    results: number;
+    page: number;
+    version: string;
+  };
 }

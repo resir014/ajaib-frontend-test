@@ -9,7 +9,8 @@ export function useUsersFilterable(page = 1, results = 10) {
   );
 
   return {
-    users: data,
+    users: data?.results,
+    info: data?.info,
     isLoading: !!data && !!error,
     isError: error,
   } as const;

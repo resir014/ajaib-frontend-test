@@ -1,22 +1,10 @@
 import * as React from 'react';
-
-const people = [
-  {
-    name: 'Jane Cooper',
-    title: 'Regional Paradigm Technician',
-    role: 'Admin',
-    email: 'jane.cooper@example.com',
-  },
-  {
-    name: 'Cody Fisher',
-    title: 'Product Directives Officer',
-    role: 'Owner',
-    email: 'cody.fisher@example.com',
-  },
-  // More people...
-];
+import { Pagination } from '~/components/ui/pagination';
+import { useUsersFilterable } from './hooks/use-users-filterable';
 
 export function UsersList() {
+  const { users } = useUsersFilterable();
+
   return (
     <div className="flex flex-col">
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -35,7 +23,7 @@ export function UsersList() {
                     scope="col"
                     className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
-                    Title
+                    Username
                   </th>
                   <th
                     scope="col"
@@ -47,40 +35,64 @@ export function UsersList() {
                     scope="col"
                     className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
-                    Role
+                    Gender
                   </th>
-                  <th scope="col" className="relative px-6 py-3">
-                    <span className="sr-only">Edit</span>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Registered Date
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {people.map((person, personIdx) => (
-                  <tr
-                    key={person.email}
-                    className={personIdx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}
-                  >
+                {users?.map((user, personIdx) => (
+                  <tr key={user.email} className={personIdx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      {person.name}
+                      {user.name.first} {user.name.last}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {person.title}
+                      {user.login.username}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {person.email}
+                      {user.email}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {person.role}
+                      {user.gender}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                        Edit
-                      </a>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm">
+                      {Intl.DateTimeFormat('en-GB', {
+                        dateStyle: 'medium',
+                        timeStyle: 'medium',
+                      }).format(new Date(user.registered.date))}
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
+            <div>
+              <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+                <div className="flex-1 flex justify-between sm:hidden">
+                  <a
+                    href="#"
+                    className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+                  >
+                    Previous
+                  </a>
+                  <a
+                    href="#"
+                    className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+                  >
+                    Next
+                  </a>
+                </div>
+                <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                  <div>
+                    <Pagination />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

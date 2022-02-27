@@ -11,6 +11,7 @@ module.exports = {
   plugins: ['prettier'],
   rules: {
     'jsx-a11y/anchor-is-valid': 'off',
+    'new-cap': 'off',
   },
   settings: {
     'import/resolver': {

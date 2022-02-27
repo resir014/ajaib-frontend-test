@@ -10,11 +10,11 @@ export async function getRandomUsers(page = 1, results = 10, inc?: string) {
     query: {
       page,
       results,
+      seed: 'ILOVETRACKMANIAESPORTS',
       inc: inc ?? 'login,name,email,gender,registered',
+      nat: 'us,gb,ie',
     },
   });
-
-  console.log(url);
 
   const response: RandomUserResponse = await fetch(url);
   return response;
