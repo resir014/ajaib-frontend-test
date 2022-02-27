@@ -2,6 +2,7 @@ import * as React from 'react';
 import type { NextPage } from 'next';
 import { LayoutRoot } from '~/components/layout';
 import { Page, PageContent, PageHeader } from '~/components/ui/page';
+import { UsersList } from '~/modules/example/users-list';
 
 const IndexPage: NextPage = () => {
   return (
@@ -11,7 +12,11 @@ const IndexPage: NextPage = () => {
           pageTitle="Example with Search and Filter"
           breadcrumbs={[{ title: 'Example Page', href: '/example', isCurrent: true }]}
         />
-        <PageContent>layout</PageContent>
+        <PageContent>
+          <div className="py-6 mx-auto container">
+            <UsersList />
+          </div>
+        </PageContent>
       </Page>
     </LayoutRoot>
   );
