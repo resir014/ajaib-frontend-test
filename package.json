@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^1.0.5",
+    "@tailwindcss/forms": "^0.4.0",
     "clsx": "^1.1.1",
     "isomorphic-unfetch": "^3.1.0",
     "lodash": "^4.17.21",

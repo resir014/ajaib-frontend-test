@@ -27,6 +27,20 @@ export interface RandomUserObject {
   registered: RegisteredObject;
 }
 
+export interface GetRandomUsersParams {
+  page?: number;
+  results?: number;
+  inc?: string;
+  filters?: {
+    gender?: string;
+    keyword?: string;
+  };
+  sort?: {
+    sortBy?: string;
+    order?: string;
+  };
+}
+
 export interface RandomUserResponse {
   results: RandomUserObject[];
   info: {
