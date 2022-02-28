@@ -12,13 +12,12 @@ export async function getRandomUsers({
   sort: { sortBy, order } = {},
 }: GetRandomUsersParams) {
   const url = qs.stringifyUrl({
-    url: `${RANDOM_USER_API_ENDPOINT}/api`,
+    url: `${RANDOM_USER_API_ENDPOINT}/api/1.3/`,
     query: {
       page,
       results,
-      seed: 'ILOVETRACKMANIAESPORTS',
-      inc: inc ?? 'login,name,email,gender,registered',
       nat: 'us,gb,ie',
+      inc: inc ?? 'login,name,email,gender,registered',
       gender,
       keyword,
       sortBy,
