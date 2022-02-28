@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 import { LayoutRoot } from '~/components/layout';
 import { Page, PageContent, PageHeader } from '~/components/ui/page';
 import { UsersList } from '~/modules/example/users-list';
-import { UsersFilterForm } from '~/modules/example/users-filter-form';
+import { UsersFilterForm } from '~/modules/example/filter/users-filter-form';
 
 const IndexPage: NextPage = () => {
   return (

@@ -1,17 +1,17 @@
 import create from 'zustand';
 
 export interface FilterStore {
-  keyword: string;
-  gender: string;
-  setKeyword: (keyword: string) => void;
-  setGender: (gender: string) => void;
+  keyword?: string;
+  gender?: string;
+  setKeyword: (keyword?: string) => void;
+  setGender: (gender?: string) => void;
 }
 
 export const useFilterStore = create<FilterStore>(set => ({
-  keyword: '',
-  gender: '',
-  setKeyword: (keyword: string) => set({ keyword }),
-  setGender: (gender: string) => set({ gender }),
+  keyword: undefined,
+  gender: undefined,
+  setKeyword: (keyword?: string) => set({ keyword }),
+  setGender: (gender?: string) => set({ gender }),
 }));
 
 export function useKeywordFilterState() {
@@ -21,4 +21,13 @@ export function useKeywordFilterState() {
   }));
 
   return [keyword, setKeyword] as const;
+}
+
+export function useGenderFilterState() {
+  const { gender, setGender } = useFilterStore(state => ({
+    gender: state.gender,
+    setGender: state.setGender,
+  }));
+
+  return [gender, setGender] as const;
 }
