@@ -38,6 +38,12 @@ We use [Next.js API routes](https://nextjs.org/docs/api-routes/introduction) to 
 
 **Performance boost:** We serve the API response in the API route with a [`stale-while-revalidate` header](https://web.dev/stale-while-revalidate/) to serve stale content whilst revalidating them in the background for the next request.
 
+### State management
+
+We use [Zustand](https://github.com/pmndrs/zustand) for our state management. This provides a simpler, less-boilerplatey way to manage our React application state while still conforming to the Flux principles, and allows for state + dispatcher to be easily called via hooks.
+
+We use Zustand to track the state of our app's filter settings.
+
 ### Directory structure
 
 - `components/` - UI/layout components that are used globally throughout project.
