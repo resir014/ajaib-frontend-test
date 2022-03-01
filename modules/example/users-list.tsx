@@ -3,7 +3,15 @@ import { Pagination } from '~/components/ui/pagination';
 import { useUsersFilterable } from './hooks/use-users-filterable';
 
 export function UsersList() {
-  const { users } = useUsersFilterable();
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const { users } = useUsersFilterable(currentPage);
+
+  const handleSelect = React.useCallback(
+    (page: number) => {
+      setCurrentPage(page);
+    },
+    [setCurrentPage]
+  );
 
   return (
     <div className="flex flex-col">
@@ -88,7 +96,7 @@ export function UsersList() {
                 </div>
                 <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
                   <div>
-                    <Pagination />
+                    <Pagination current={currentPage} total={5} onSelect={handleSelect} />
                   </div>
                 </div>
               </div>

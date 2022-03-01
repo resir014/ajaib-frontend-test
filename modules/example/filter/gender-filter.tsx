@@ -29,7 +29,6 @@ export function GenderFilter() {
         name="gender"
         className="mt-1 block w-full min-w-[200px] pl-3 pr-10 py-2 text-base border-gray-300 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
         value={value}
-        defaultValue=""
         onChange={handleChange}
       >
         <option value="">All</option>
