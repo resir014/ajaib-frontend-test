@@ -32,6 +32,12 @@ yarn test
 
 ## Architecture
 
+### Data fetching
+
+We use [Next.js API routes](https://nextjs.org/docs/api-routes/introduction) to wrap requests heading to the Random User API. Then we use [SWR](https://swr.vercel.app/) for our data-fetching logic, allowing for data fetches to be wrapped in a custom hook.
+
+**Performance boost:** We serve the API response in the API route with a [`stale-while-revalidate` header](https://web.dev/stale-while-revalidate/) to serve stale content whilst revalidating them in the background for the next request.
+
 ### Directory structure
 
 - `components/` - UI/layout components that are used globally throughout project.
