@@ -44,6 +44,10 @@ We use [Zustand](https://github.com/pmndrs/zustand) for our state management. Th
 
 We use Zustand to track the state of our app's filter settings.
 
+### Debounced search
+
+The `useUsersFilterable` hook contains a debounce function (using `lodash/debounce`) to delay updating of the URL until the user has stopped typing.
+
 ### Directory structure
 
 - `components/` - UI/layout components that are used globally throughout project.
